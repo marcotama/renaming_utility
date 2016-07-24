@@ -16,8 +16,11 @@ This application comes with no guarantees. Use at your own risk.
 
 
 Author: Marco Tamassia
+
 Email: tamassia.marco@gmail.com
 
 Acknowledgements:
+
 The GUI was designed using PAGE - Python Automatic GUI Generator.
+
 Homepage: http://page.sourceforge.net/
