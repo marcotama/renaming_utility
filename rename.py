@@ -1,3 +1,11 @@
+"""
+Renaming utility, GUI based.
+Comes with no guarantees, use at your own risk!
+
+Author: Marco Tamassia
+Email: tamassia.marco@gmail.com
+"""
+
 try:
     from Tkinter import *
     from Tkinter import filedialog
@@ -132,8 +140,8 @@ class RenameUtility:
         orig_names, new_names = self._produce_new_names()
         output = '\n'.join("{orig} -> {new}".format(orig=orig, new=new) for orig, new in zip(orig_names, new_names))
         # self.preview_scrolledtext.configure(state=NORMAL)
-        self.preview_scrolledtext.delete("1.0", END)
-        self.preview_scrolledtext.insert("1.0", output)
+        self.preview_text.delete("1.0", END)
+        self.preview_text.insert("1.0", output)
         # self.preview_scrolledtext.configure(state=DISABLED)
 
     @staticmethod
@@ -272,12 +280,12 @@ class RenameUtility:
         self.patternify_selection_button = Button(top, text='Patternify selection', **button_style)
         self.patternify_selection_button.place(relx=0.42, rely=0.28, height=26, width=127)
 
-        self.preview_scrolledtext = Text(top, **entry_style)
-        self.preview_scrolledtext.place(relx=0.08, rely=0.67, relheight=0.19, relwidth=0.86)
-        self.preview_scrolledtext.configure(insertborderwidth="3")
-        self.preview_scrolledtext.configure(width=60)
+        self.preview_text = Text(top, **entry_style)
+        self.preview_text.place(relx=0.08, rely=0.67, relheight=0.19, relwidth=0.86)
+        self.preview_text.configure(insertborderwidth="3")
+        self.preview_text.configure(width=60)
         # self.preview_scrolledtext.configure(state=DISABLED)
-        self.preview_scrolledtext.configure(wrap=NONE)
+        self.preview_text.configure(wrap=NONE)
 
         self.preview_label = Label(top, text='Preview', **label_style)
         self.preview_label.place(relx=0.08, rely=0.62, height=18, width=50)
