@@ -16,7 +16,7 @@ Features:
 I tested it with Python 2.7 and 3.5 under Linux.
 If you successfully run it on other platforms, please let me know!
 
-To execute it, run`python rename.py`.
+To execute it, run `python rename.py`.
 
 This application comes with no guarantees. Use at your own risk.
 
