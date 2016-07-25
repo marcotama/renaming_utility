@@ -9,9 +9,10 @@ Email: tamassia.marco@gmail.com
 try:
     from Tkinter import *
     import tkFileDialog as filedialog
+    import tkMessageBox as messagebox
 except ImportError:
     from tkinter import *
-    from tkinter import filedialog
+    from tkinter import filedialog, messagebox
 
 try:
     import ttk
@@ -133,8 +134,23 @@ class RenameUtility:
     def apply_renaming(self, _):
         directory = self.current_directory_str.get()
         orig_names, new_names = self._produce_new_names()
-        for orig, new in zip(orig_names, new_names):
-            rename(join(directory, orig), join(directory, new))
+        cur = None
+        try:
+            for orig, new in zip(orig_names, new_names):
+                cur = (orig, new)
+                rename(join(directory, orig), join(directory, new))
+        except OSError as e:
+            orig, new = cur
+            messagebox.showerror("Operation failed",
+                                 'Renaming of file\n'
+                                 '{orig}\n'
+                                 'into\n'
+                                 '{new}\n'
+                                 'failed for the following reason: {error}\n'
+                                 'Operation interrupted.'
+                                 .format(orig=join(directory, orig), new=join(directory, new), error=e.strerror))
+            return
+        messagebox.showinfo("Operation successful", "Renaming completed")
 
     def update_current_dir(self, *_):
         orig_names, new_names = self._produce_new_names()
