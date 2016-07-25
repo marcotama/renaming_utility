@@ -8,7 +8,7 @@ Email: tamassia.marco@gmail.com
 
 try:
     from Tkinter import *
-    from Tkinter import filedialog
+    import tkFileDialog as filedialog
 except ImportError:
     from tkinter import *
     from tkinter import filedialog
@@ -107,7 +107,7 @@ class RenameUtility:
             files = []
         return files
 
-    def _produce_new_name(self, name: str):
+    def _produce_new_name(self, name):
         if self.match_and_replace_checked.get():
             name = name.replace(self.match_str.get(), self.replace_str.get())
         if self.match_and_replace_regex_checked.get():
