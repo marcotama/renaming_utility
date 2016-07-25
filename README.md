@@ -10,9 +10,16 @@ Features:
  - Regular expression (Perl) replacement
  - Patternify button to try to infer a pattern in selected text
 
-To run, enter `python rename.py`.
+![A screenshot of the software](screenshot.png)
+
+
+I tested it with Python 2.7 and 3.5 under Linux.
+If you successfully run it on other platforms, please let me know!
+
+To execute it, run`python rename.py`.
 
 This application comes with no guarantees. Use at your own risk.
+
 
 
 Author: Marco Tamassia
