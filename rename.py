@@ -138,7 +138,13 @@ class RenameUtility:
 
     def update_current_dir(self, *_):
         orig_names, new_names = self._produce_new_names()
-        output = '\n'.join("{orig} -> {new}".format(orig=orig, new=new) for orig, new in zip(orig_names, new_names))
+        lines = []
+        for orig, new in zip(orig_names, new_names):
+            if new == orig:
+                lines.append("{orig}".format(orig=orig))
+            else:
+                lines.append("{orig} -> {new}".format(orig=orig, new=new))
+        output = '\n'.join(lines)
         # self.preview_scrolledtext.configure(state=NORMAL)
         self.preview_text.delete("1.0", END)
         self.preview_text.insert("1.0", output)
